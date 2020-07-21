@@ -74,3 +74,23 @@ https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html
 ## 评分标准   
 
 90%正确性，10% report/code review
+
+
+
+## Q&A
+
+- Q: 乘除法怎么实现？ 
+
+  A：修改simulator，加上两种乘除法语句。
+
+- Q: BASIC语言有哪些数据类型？ 
+
+  A：只有int类型，除非在IF的条件语句中会出现bool，但也只需要用简单的0/1的int。另外，除法结果为整数相除向下取整，和C++中的整数除法一致。
+
+- Q：关键字包括什么？
+
+  A：仅包含我们basic语言里的关键字，REM，IF，THEN，EXIT等等，其他语言无关。
+
+- Q：优先级是什么？
+
+  A：运算符优先级和C++一致。
