@@ -62,8 +62,7 @@ BASIC语言是区分大小写的；
 
 - `LET var = INT[N]`：数组生成语句，数组长度固定为N，生成后不得更改。
 - 调用数组时，使用下标的形式，即`var[i]=expr` 或 `var2 = var[i]`。
-
-
+- 高维数组以此类推。
 
 ### Reference
 
@@ -94,3 +93,7 @@ https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html
 - Q：优先级是什么？
 
   A：运算符优先级和C++一致。
+
+- 所有的语句编号是从小到大的，但不一定连续。
+
+- 不考虑变量的作用域，LET语句和INPUT语句即为引入变量/修改变量值。只要之前执行的语句有该变量，该变量即存在。在整个程序结束后才会销毁变量。
