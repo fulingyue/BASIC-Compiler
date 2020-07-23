@@ -14,7 +14,7 @@
 14 FOR c = c + 1; c <= n
 15  IF a != b && b != c && a != c THEN 17
 16  GOTO 18
-17  sum = sum + 1
+17  LET sum = sum + 1
 18 END FOR
 19 END FOR
 20 END FOR
