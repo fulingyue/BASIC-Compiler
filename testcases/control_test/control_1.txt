@@ -25,7 +25,7 @@
 25          LET f = 1
 26          FOR f = f + 1; f <= N
 27            IF (a==b || a==c ||  a==d ||  a==e ||  a==f ||  a==h ||  a==i ||  a==j ||  a==k ||  b==c ||  b==d ||  b==e ||  b==f ||  b==h ||  b==i ||  b==j ||  b==k ||  c==d ||  c==e ||  c==f ||  c==h ||  c==i ||  c==j ||  c==k ||  d==e ||  d==f ||  d==h ||  d==i ||  d==j ||  d==k ||  e==f ||  e==h ||  e==i ||  e==j ||  e==k ||  f==h ||  f==i ||  f==j ||  f==k ||  i==j ||  h==k) THEN 24
-28            total = total + 1
+28            LET total = total + 1
 29          END FOR
 30        END FOR
 31      END FOR 
