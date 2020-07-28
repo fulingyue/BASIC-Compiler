@@ -4,7 +4,8 @@ import sys
 import subprocess
 import time
 
-YOUR_BASEPATH = ''
+YOUR_BASEPATH = '/Users/zhengwenxin/Documents/Projects/BASIC-Compiler/ut'
+VERBOSE = False
 
 def info(s):
     print('[Info] {}'.format(s))
@@ -14,23 +15,38 @@ def fatal(s):
     sys.exit(0)
 
 def judge(testcase):
-    process = subprocess.Popen(['make', 'build'], cwd=YOUR_BASEPATH, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, stdin=subprocess.PIPE)
+    
+    if VERBOSE:
+        print('[Verbose] =======Build Stage START =======')
+        process = subprocess.Popen(['make', 'build'], cwd=YOUR_BASEPATH, stdin=subprocess.PIPE)
+    else:
+        process = subprocess.Popen(['make', 'build'], cwd=YOUR_BASEPATH, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, stdin=subprocess.PIPE)
     build_timeout = 5
     testname, inputctx, retcode, inputcode = testcase
-    process.communicate(inputcode)
+    process.communicate(inputcode.encode())
     start_time = time.time()
     while process.poll() is not None and time.time() - start_time < build_timeout:
+        if process.returncode is not None and process.returncode != 0:
+            break
         pass
+    print('[Verbose] =======Build Stage FINISH=======\n') if VERBOSE else None
     try:
         process.terminate()
     except Exception as identifier:
         info('Terminating processing with following error: {}'.format(identifier))
-    process = subprocess.Popen(['make', 'simulate'], cwd=YOUR_BASEPATH, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, stdin=subprocess.PIPE)
+    if VERBOSE:
+        print('[Verbose] =======Simulation Stage START =======')
+        process = subprocess.Popen(['make', 'simulate'], cwd=YOUR_BASEPATH, stdin=subprocess.PIPE)
+    else:
+        process = subprocess.Popen(['make', 'simulate'], cwd=YOUR_BASEPATH, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, stdin=subprocess.PIPE)
     simulating_timeout = 10
-    process.communicate(inputctx + '\n')
+    process.communicate((inputctx + '\n').encode())
     start_time = time.time()
     while process.poll() is not None and time.time() - start_time < simulating_timeout:
+        if process.returncode is not None and process.returncode != 0:
+            break
         pass
+    print('[Verbose] =======Simulation Stage FINISH=======\n') if VERBOSE else None
     try:
         process.terminate()
     except Exception as identifier:
@@ -40,7 +56,7 @@ def judge(testcase):
         print('[PASS] {}'.format(testname))
         return True
     else:
-        print('[FAIL] {}'.format(testname))
+        print('[FAIL] {}, std_ret: {}, your_ret: {}'.format(testname, retcode, user_ret))
         return False
     
 
