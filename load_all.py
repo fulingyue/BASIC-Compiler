@@ -1,4 +1,5 @@
 import pickle
+import base64
 
 file_template_list = ['testcases/basic_test/basic_{}.txt', 'testcases/control_test/control_{}.txt', 'testcases/op_test/op_{}.txt']
 
@@ -25,3 +26,5 @@ for f in file_list:
     test_case.append((file_name.strip('\n'), ''.join(input_data).strip('\n'), int(exit_code), '{}\n'.format(''.join(all_lines))))
     print('Finish: ', f)
 
+s = pickle.dumps(test_case)
+print(base64.b64encode(s).decode())
