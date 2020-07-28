@@ -23,6 +23,7 @@ for f in file_list:
     file_name = all_lines[0].split(' ')[2]
     input_data = all_lines[1].split(':')[1].strip()
     exit_code = all_lines[2].split(':')[1].strip()
+    all_lines[2] = '3 REM asfeskejfewf'
     test_case.append((file_name.strip('\n'), ''.join(input_data).strip('\n'), int(exit_code), '{}\n'.format(''.join(all_lines))))
     print('Finish: ', f)
 
