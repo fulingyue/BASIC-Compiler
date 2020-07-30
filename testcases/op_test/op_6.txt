@@ -2,7 +2,7 @@
 2 REM input: 8 6
 3 REM return value: 1
 4 INPUT a, b
-5 IF a >= b && a - 1 != b THEN 8
+5 IF a >= b && a - 1 == b THEN 8
 6 LET c = b / a
 7 GOTO 9
 8 LET c = a * b
