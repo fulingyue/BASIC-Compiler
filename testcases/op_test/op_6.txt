@@ -1,6 +1,6 @@
 1 REM op_6.txt
 2 REM input: 8 6
-3 REM return value: 1
+3 REM return value: 0
 4 INPUT a, b
 5 IF a >= b && a - 1 == b THEN 8
 6 LET c = b / a
