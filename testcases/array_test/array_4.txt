@@ -7,7 +7,7 @@
 7 LET j = 0
 8 FOR i = i + 1; i < n
 9 FOR j = j + 1; j < m
-10 IF i == 0 || j == 0 THEN 
+10 IF i == 0 || j == 0 THEN 13
 11 LET matrix[i][j] = matrix[i - 1][j] + matrix[i][j - 1]
 12 GOTO 14
 13 LET matrix[i][j] = 1
