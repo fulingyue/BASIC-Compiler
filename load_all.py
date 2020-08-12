@@ -7,7 +7,7 @@ array_size = 5
 basic_size = 10
 control_size = 5
 op_size = 10
-sema_size = 14
+sema_size = 20
 
 file_list = []
 for i in range(array_size):

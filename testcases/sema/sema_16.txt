@@ -1,0 +1,7 @@
+1 REM sema_16.txt
+2 REM input: 12346
+3 REM return value: FAIL
+4 EXIT i
+5 LET i = 0
+6 LET j = i + 1
+7 REM EXIT j

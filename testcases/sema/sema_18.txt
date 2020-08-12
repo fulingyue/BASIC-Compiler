@@ -1,0 +1,10 @@
+1 REM sema_18.txt
+2 REM input: 0000000
+3 REM return value: FAIL
+4 INPUT n
+5 LET i = 1
+6 LET sum = 0
+7 FOR i = i + 1; i < ntt
+8 LET sum = sum + i
+9 END FOR
+10 EXIT sum 
