@@ -1,0 +1,6 @@
+1 REM sema_15.txt
+2 REM input: 
+3 REM return value: FAIL
+4 LET i = 0
+5 LET j = i + 1
+6 EXIT k

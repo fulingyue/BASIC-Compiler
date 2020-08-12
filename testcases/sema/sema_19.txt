@@ -1,0 +1,9 @@
+1 REM sema_19.txt
+2 REM input: 0000000
+3 REM return value: FAIL
+4 REM STATUS
+5 INPUT n
+7 IF n > 5 THEN 12
+8 LET n = 5
+10 EXIT n
+11 GOTO 10
